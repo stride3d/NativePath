@@ -11,8 +11,6 @@
 		75A46E551CE6BA110080B95B /* stdio.c in Sources */ = {isa = PBXBuildFile; fileRef = 75A46E521CE6BA110080B95B /* stdio.c */; };
 		75A46E561CE6BA110080B95B /* stdlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 75A46E531CE6BA110080B95B /* stdlib.c */; };
 		75B804CE1C09C575002CFF20 /* NativeTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75B804CC1C09C575002CFF20 /* NativeTime.cpp */; };
-		75EC727E1BF9B92100A988D5 /* NativeMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 75EC727D1BF9B92100A988D5 /* NativeMath.c */; };
-		75FC37A41BFB3E29006825D6 /* lol_trig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75FC37A31BFB3E29006825D6 /* lol_trig.cpp */; };
 		75FC37A81BFC8FF4006825D6 /* NativeMemory.c in Sources */ = {isa = PBXBuildFile; fileRef = 75FC37A61BFC8FF4006825D6 /* NativeMemory.c */; };
 		C49CC7FE1C9A7CB500311E6A /* NativeDynamicLinking.c in Sources */ = {isa = PBXBuildFile; fileRef = C49CC7FC1C9A7CB500311E6A /* NativeDynamicLinking.c */; };
 		C4B5432C1D1D30C70079CEB0 /* NativeThreading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B5432B1D1D30C70079CEB0 /* NativeThreading.cpp */; };
@@ -36,8 +34,6 @@
 		75A46E531CE6BA110080B95B /* stdlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stdlib.c; path = source/stdlib.c; sourceTree = SOURCE_ROOT; };
 		75B804CC1C09C575002CFF20 /* NativeTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NativeTime.cpp; path = ../source/NativeTime.cpp; sourceTree = "<group>"; };
 		75EC72701BF9B5AE00A988D5 /* libNativePath.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNativePath.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		75EC727D1BF9B92100A988D5 /* NativeMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NativeMath.c; path = ../source/NativeMath.c; sourceTree = "<group>"; };
-		75FC37A31BFB3E29006825D6 /* lol_trig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lol_trig.cpp; path = ../source/lol_trig.cpp; sourceTree = "<group>"; };
 		75FC37A61BFC8FF4006825D6 /* NativeMemory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NativeMemory.c; path = ../source/NativeMemory.c; sourceTree = "<group>"; };
 		C49CC7FC1C9A7CB500311E6A /* NativeDynamicLinking.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NativeDynamicLinking.c; path = ../source/NativeDynamicLinking.c; sourceTree = "<group>"; };
 		C4B5432B1D1D30C70079CEB0 /* NativeThreading.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NativeThreading.cpp; path = source/NativeThreading.cpp; sourceTree = SOURCE_ROOT; };
@@ -79,8 +75,6 @@
 				75A46E531CE6BA110080B95B /* stdlib.c */,
 				C49CC7FC1C9A7CB500311E6A /* NativeDynamicLinking.c */,
 				75B804CC1C09C575002CFF20 /* NativeTime.cpp */,
-				75EC727D1BF9B92100A988D5 /* NativeMath.c */,
-				75FC37A31BFB3E29006825D6 /* lol_trig.cpp */,
 				75FC37A61BFC8FF4006825D6 /* NativeMemory.c */,
 			);
 			path = NativePath;
@@ -143,11 +137,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				75A46E541CE6BA110080B95B /* NEONvsSSE.c in Sources */,
-				75FC37A41BFB3E29006825D6 /* lol_trig.cpp in Sources */,
 				75B804CE1C09C575002CFF20 /* NativeTime.cpp in Sources */,
 				75A46E561CE6BA110080B95B /* stdlib.c in Sources */,
 				75A46E551CE6BA110080B95B /* stdio.c in Sources */,
-				75EC727E1BF9B92100A988D5 /* NativeMath.c in Sources */,
 				C49CC7FE1C9A7CB500311E6A /* NativeDynamicLinking.c in Sources */,
 				75FC37A81BFC8FF4006825D6 /* NativeMemory.c in Sources */,
 				C4B5432C1D1D30C70079CEB0 /* NativeThreading.cpp in Sources */,
@@ -246,6 +238,7 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.11;
@@ -262,6 +255,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.11;
