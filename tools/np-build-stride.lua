@@ -17,6 +17,9 @@ local release_ms_flags = "-O2"
 -- we require Zig v0.12.0 reachable from your path. this only works on Windows for now
 local zig = "zig.exe"	
 
+-- For testing alternative versions of Zig, etc
+-- local zig = "c:\\devtools\\zig-0.11.0\\zig.exe"
+
 function BuildZig(cfile, target, platform_args)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
@@ -25,7 +28,9 @@ function BuildZig(cfile, target, platform_args)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+
+	os.execute(cmd)
+	table.insert(objs, cfile..".o")
 end
 
 function LinkZigStatic(target, folder, ext)
