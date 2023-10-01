@@ -4,7 +4,7 @@ local parent_path = string.match(arg[0], "(.-)([^\\/]-%.?([^%.\\/]*))$")
 package.path = package.path .. ";" .. parent_path .. "?.lua"
 -- Load the driver package which will take care of the command line arguments and other settings
 -- as here we just focus on the code necessary to build our supported platforms
-require "np-build-driver-stride"
+require "np-build-driver"
 
 local debug_flags = "-O0 -g"
 local debug_ms_flags = "-Od"
@@ -112,12 +112,8 @@ elseif platform == "macos" then
 	end
 	LinkZigStatic("aarch64-macos", "libs\\osx-arm64", "a")
 	
-	-- lfs.mkdir("macOS")
-	
-	if is_verbose == true then
-		print(cmd)
-	end
-	-- Not sure we need lipo anymore 
+	-- TODO: Not sure we need lipo anymore? since we target each runtime separately, and only x64/aarch64
+	-- lfs.mkdir("macOS")	
 	-- os.execute("lipo macOS\\"..outputName.."_i386.a macOS\\"..outputName.."_x86_64.a -create -output macOS\\"..outputName..".a")
 	-- os.remove("macOS\\"..outputName.."_i386.a")
 	-- os.remove("macOS\\"..outputName.."_x86_64.a")
