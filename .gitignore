@@ -251,3 +251,4 @@ tools/WindowsUWP/x86/libCompilerRt.lib
 *.a
 *.bc
 *.lib
+*.o
