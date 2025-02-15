@@ -3,7 +3,7 @@
 #ifdef _WIN32
 	#define NATIVE_PATH_WIN
 	//define something for Windows (32-bit and 64-bit, this part is common)
-	#ifdef _M_ARM
+	#if defined(_M_ARM) || defined(_M_ARM64)
 		#include <arm_neon.h>
 	#else
 		#include "NEONvsSSE.h"
