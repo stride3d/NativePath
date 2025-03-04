@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall.bat" x86
+call "%PROGRAMFILES%\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall.bat" x86
 set WindowsSdkDir=
 set Generator="Visual Studio 17 2022"
 
