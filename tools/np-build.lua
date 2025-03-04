@@ -21,7 +21,7 @@ function BuildWindows32DLL(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkWindows32DLL()
@@ -29,7 +29,7 @@ function LinkWindows32DLL()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "clang -v -m32 -shared -o Windows\\x86\\"..outputName..".dll -Wl,\"-libpath:C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.10586.0\\ucrt\\x86\",\"-libpath:C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.10586.0\\um\\x86\",-nodefaultlib:libcmt,-dll,-libpath:..\\Libs\\Windows\\x86\\ -llibNativePath "..objs_str
+	local cmd = "clang -v -m32 -shared -o Windows\\x86\\"..outputName..".dll -Wl,\"-libpath:C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.22621.0\\ucrt\\x86\",\"-libpath:C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.22621.0\\um\\x86\",-nodefaultlib:libcmt,-dll,-libpath:..\\Libs\\Windows\\x86\\ -llibNativePath "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -48,7 +48,7 @@ function BuildLLVM32(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	if os.execute(cmd) then table.insert(objs, cfile..".bc") end
 	os.execute(cmdLL)
 	os.execute(cmdPP)
 end
@@ -73,7 +73,7 @@ function BuildLLVMarmv7(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	if os.execute(cmd) then table.insert(objs, cfile..".bc") end
 end
 
 function LinkLLVMarmv7()
@@ -96,7 +96,7 @@ function BuildLLVMarmv7s(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	if os.execute(cmd) then table.insert(objs, cfile..".bc") end
 end
 
 function LinkLLVMarmv7s()
@@ -119,7 +119,7 @@ function BuildLLVMAArch64(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	if os.execute(cmd) then table.insert(objs, cfile..".bc") end
 end
 
 function LinkLLVMAArch64()
@@ -142,7 +142,7 @@ function BuildLLVMarmv6(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	if os.execute(cmd) then table.insert(objs, cfile..".bc") end
 end
 
 function LinkLLVMarmv6()
@@ -165,7 +165,7 @@ function BuildLLVM64(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	if os.execute(cmd) then table.insert(objs, cfile..".bc") end
 end
 
 function LinkLLVM64()
@@ -190,7 +190,7 @@ function BuildLLVMarmv7Appl(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	if os.execute(cmd) then table.insert(objs, cfile..".bc") end
 end
 
 function LinkLLVMarmv7Appl()
@@ -213,7 +213,7 @@ function BuildLLVMarmv7sAppl(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	if os.execute(cmd) then table.insert(objs, cfile..".bc") end
 end
 
 function LinkLLVMarmv7sAppl()
@@ -236,7 +236,7 @@ function BuildLLVMAArch64Appl(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	if os.execute(cmd) then table.insert(objs, cfile..".bc") end
 end
 
 function LinkLLVMAArch64Appl()
@@ -261,7 +261,7 @@ function BuildLLVM32Appl(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	if os.execute(cmd) then table.insert(objs, cfile..".bc") end
 	os.execute(cmdLL)
 	os.execute(cmdPP)
 end
@@ -286,7 +286,7 @@ function BuildLLVM64Appl(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	if os.execute(cmd) then table.insert(objs, cfile..".bc") end
 end
 
 function LinkLLVM64Appl()
@@ -310,7 +310,7 @@ function BuildWindows32(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkWindows32()
@@ -318,7 +318,7 @@ function LinkWindows32()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86 && lib /NOLOGO /OUT:Windows\\x86\\"..outputName..".lib "..objs_str
+	local cmd = "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvarsall\" x86 && lib /NOLOGO /OUT:Windows\\x86\\"..outputName..".lib "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -332,7 +332,7 @@ function BuildWindows64(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkWindows64()
@@ -340,7 +340,29 @@ function LinkWindows64()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x64 && lib /NOLOGO /OUT:Windows\\x64\\"..outputName..".lib "..objs_str
+	local cmd = "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvarsall\" x64 && lib /NOLOGO /OUT:Windows\\x64\\"..outputName..".lib "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
+	os.execute(cmd)
+end
+
+function BuildWindowsARM64(cfile)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	local cmd = "clang -m64 -DNP_WIN32 -gcodeview -fno-ms-extensions -target aarch64-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile
+	if is_verbose == true then
+		print(cmd)
+	end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
+end
+
+function LinkWindowsARM64()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvarsall\" arm64 && lib /NOLOGO /OUT:Windows\\arm64\\"..outputName..".lib "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -356,7 +378,7 @@ function BuildWindowsUWP32(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkWindowsUWP32()
@@ -364,7 +386,7 @@ function LinkWindowsUWP32()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86 store 10.0.10240 && lib /NOLOGO /OUT:WindowsUWP\\x86\\"..outputName..".lib "..objs_str
+	local cmd = "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvarsall\" x86 store 10.0.10240 && lib /NOLOGO /OUT:WindowsUWP\\x86\\"..outputName..".lib "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -378,7 +400,7 @@ function BuildWindowsUWP64(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkWindowsUWP64()
@@ -386,7 +408,7 @@ function LinkWindowsUWP64()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x64 store 10.0.10240 && lib /NOLOGO /OUT:WindowsUWP\\x64\\"..outputName..".lib "..objs_str
+	local cmd = "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvarsall\" x64 store 10.0.10240 && lib /NOLOGO /OUT:WindowsUWP\\x64\\"..outputName..".lib "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -400,7 +422,7 @@ function BuildWindowsUWPARM(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkWindowsUWPARM()
@@ -408,7 +430,7 @@ function LinkWindowsUWPARM()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86_arm store 10.0.10240 && lib /NOLOGO /OUT:WindowsUWP\\ARM\\"..outputName..".lib "..objs_str
+	local cmd = "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvarsall\" x86_arm store 10.0.10240 && lib /NOLOGO /OUT:WindowsUWP\\ARM\\"..outputName..".lib "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -422,7 +444,7 @@ function LinkWindows8132()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86 8.1 store && lib /NOLOGO /OUT:Windows8.1\\x86\\"..outputName..".lib "..objs_str
+	local cmd = "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvarsall\" x86 8.1 store && lib /NOLOGO /OUT:Windows8.1\\x86\\"..outputName..".lib "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -434,7 +456,7 @@ function LinkWindows8164()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x64 8.1 store && lib /NOLOGO /OUT:Windows8.1\\x64\\"..outputName..".lib "..objs_str
+	local cmd = "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvarsall\" x64 8.1 store && lib /NOLOGO /OUT:Windows8.1\\x64\\"..outputName..".lib "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -446,7 +468,7 @@ function LinkWindows81ARM()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86_arm 8.1 store && lib /NOLOGO /OUT:Windows8.1\\ARM\\"..outputName..".lib "..objs_str
+	local cmd = "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvarsall\" x86_arm 8.1 store && lib /NOLOGO /OUT:Windows8.1\\ARM\\"..outputName..".lib "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -492,7 +514,7 @@ function BuildIOSArm7(cfile, isCpp)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkIOSArm7()
@@ -514,7 +536,7 @@ function BuildIOSArm7s(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkIOSArm7s()
@@ -536,7 +558,7 @@ function BuildIOSArm64(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkIOSArm64()
@@ -558,7 +580,7 @@ function BuildIOSx86(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkIOSx86()
@@ -580,7 +602,7 @@ function BuildIOSx64(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkIOSx64()
@@ -604,7 +626,7 @@ function BuildMacOSx86(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkMacOSx86()
@@ -626,7 +648,7 @@ function BuildMacOSx64(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkMacOSx64()
@@ -650,7 +672,7 @@ function BuildAndroidArm(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkAndroidArm()
@@ -672,7 +694,7 @@ function BuildAndroidArm7(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkAndroidArm7()
@@ -694,7 +716,7 @@ function BuildAndroidArm64(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkAndroidArm64()
@@ -719,7 +741,7 @@ function BuildAndroidx86(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkAndroidx86()
@@ -741,7 +763,7 @@ function BuildAndroidx64(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkAndroidx64()
@@ -765,7 +787,7 @@ function BuildLinuxX64(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkLinuxX64()
@@ -787,7 +809,7 @@ function BuildLinuxX86(cfile)
 	if is_verbose == true then
 		print(cmd)
 	end
-	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+	if os.execute(cmd) then table.insert(objs, cfile..".o") end
 end
 
 function LinkLinuxX86()
@@ -807,6 +829,7 @@ if platform == "windows" then
 	lfs.chdir("Windows")
 	lfs.mkdir("x64")
 	lfs.mkdir("x86")
+	lfs.mkdir("arm64")
 	lfs.chdir("..")
 
     print ("Building Windows x86 DLL...")
@@ -831,6 +854,13 @@ if platform == "windows" then
 		BuildWindows64(f)
 	end
 	LinkWindows64()
+
+	objs = {}
+    print ("Building Windows arm64...")
+	for i,f in ipairs(cfiles) do
+		BuildWindowsARM64(f)
+	end
+	LinkWindowsARM64()
 
 	objs = {}
 	lfs.mkdir("WindowsUWP")
