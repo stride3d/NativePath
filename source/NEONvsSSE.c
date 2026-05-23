@@ -24,16 +24,27 @@
     #include "TargetConditionals.h"
     #if TARGET_IPHONE_SIMULATOR
         #define NATIVE_PATH_IOS
-         // iOS Simulator
-        #include "NEONvsSSE.h"
+        // iOS Simulator
+        #if defined(__arm64__) || defined(__aarch64__)
+            // Apple Silicon Mac iOS simulator: native NEON
+            #include <arm_neon.h>
+        #else
+            // Intel Mac iOS simulator: use NEON-on-SSE translation header
+            #include "NEONvsSSE.h"
+        #endif
     #elif TARGET_OS_IPHONE
         #define NATIVE_PATH_IOS
         #include <stdio.h>
         #include <arm_neon.h>
         // iOS device
     #elif TARGET_OS_MAC
-        // Other kinds of Mac OS
-        #include "NEONvsSSE.h"
+        #if defined(__arm64__) || defined(__aarch64__)
+            // Apple Silicon macOS: native NEON
+            #include <arm_neon.h>
+        #else
+            // Intel macOS: use NEON-on-SSE translation header
+            #include "NEONvsSSE.h"
+        #endif
     #else
     #   error "Unknown Apple platform"
     #endif
